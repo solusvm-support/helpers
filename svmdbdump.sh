@@ -9,7 +9,7 @@ if [[ -f /usr/local/solusvm/includes/solusvm.conf ]]; then
     echo -e "\nVerified that file /usr/local/solusvm/includes/solusvm.conf exists. Continue...\n"
 else
     echo -e "\n---------------------------------\n"
-    echo -e "Backup failed to create: file /usr/local/solusvm/includes/solusvm.conf does not exists.\n"
+    echo -e "Backup is failed to create: file /usr/local/solusvm/includes/solusvm.conf does not exists.\n"
     echo -e "Make sure that the server is correct and SolusVM Master software is installed"
     exit 1
 fi
