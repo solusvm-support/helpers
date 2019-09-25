@@ -1,5 +1,6 @@
 #!/bin/bash
 # The script creates a backup of SolusVM database and puts it into /root/ directory
+# KCS article 360009293960
 
 echo "Backup of SolusVM database started... "
 sleep 1
