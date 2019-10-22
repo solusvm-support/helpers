@@ -12,7 +12,7 @@ function backup() {
     bkp_name="solusvmdb$(date +%F_%H.%M).sql"
     mv "${TMPNAME}" "$bkp_name"
 
-    echo "Backup file /$(pwd)/$bkp_name has been created"
+    echo "Backup file $(pwd)/$bkp_name has been created"
 }
 
 # Checks whether the MySQL credential file exists and can be read
