@@ -87,7 +87,6 @@ function configureMaster () {
 	fi
 	
 	echo "Now, when password is in place, provide the IP address of SolusVM Master node : "
-	echo "Taras & Alisa, you may paste 1.1.1.1 here and check the iptables afterwards :P "
 	read -r SVM_IP_ADDRESS
 	ipcalc -cs "$SVM_IP_ADDRESS"
 	ipcheck="$?"
