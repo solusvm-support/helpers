@@ -6,5 +6,6 @@ Easy usage:
 <p>Example
 <p><code>curl -o svmdbdump.sh https://raw.githubusercontent.com/solusvm-support/helpers/master/svmdbdump.sh && sh svmdbdump.sh</code>
 
+# Scripts description
 solusvmdb.sh - access to SolusVM database
 <br>svmdbdump.sh - create SolusVM database dump
