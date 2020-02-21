@@ -117,7 +117,7 @@ function configureMaster () {
 	
 	echo "Downloading database schema for PowerDNS..."
 	MYSQL_PWD="${sqlpassword}" /usr/bin/mysql -uroot --execute "create database powerdns;"
-	curl -o pdns.sql https://support.solusvm.com/hc/en-us/article_attachments/360023860952/pdns.sql &>> "$INSTALL_LOG"
+	curl -o pdns.sql https://support.solus.io/hc/en-us/article_attachments/360023860952/pdns.sql &>> "$INSTALL_LOG"
 	MYSQL_PWD="${sqlpassword}" /usr/bin/mysql -uroot powerdns < pdns.sql
 	rm -f pdns.sql
 	
@@ -219,7 +219,7 @@ function configureSlave () {
 	
 	echo "Downloading database schema for PowerDNS..."
 	MYSQL_PWD="${sqlpassword}" /usr/bin/mysql -uroot --execute "create database powerdns;"
-	curl -o pdns.sql https://support.solusvm.com/hc/en-us/article_attachments/360023860952/pdns.sql &>> "$INSTALL_LOG"
+	curl -o pdns.sql https://support.solus.io/hc/en-us/article_attachments/360023860952/pdns.sql &>> "$INSTALL_LOG"
 	MYSQL_PWD="${sqlpassword}" /usr/bin/mysql -uroot powerdns < pdns.sql
 	rm -f pdsn.sql
 	
