@@ -46,16 +46,20 @@ function new_agent_service() {
 	\nExecStartPre=/bin/mkdir -p /var/log/solus \
 	\nExecStartPre=/bin/chmod 644 /var/log/solus \
 	\n[Install] \
-	\nWantedBy=multi-user.target" >> /usr/lib/systemd/system/solus-agent.service
+	\nWantedBy=multi-user.target" > /usr/lib/systemd/system/solus-agent.service
 }
 
 function update_services() {
 	echo "Stopping/disabling old solusnxt-agent.service"
-	systemctl stop solusnxt-agent.service
-	systemctl disable solusnxt-agent.service
-	mv /etc/systemd/system/solusnxt-agent.service /root/solusnxt-agent.service.backup
-	systemctl mask solusnxt-agent.service
-	echo "Completed"
+	if [[ ! -f /etc/systemd/system/solusnxt-agent.service ]]; then
+		echo "File /etc/systemd/system/solusnxt-agent.service. Looks like solusnxt-agent. service disabled already"
+	else
+		systemctl stop solusnxt-agent.service
+		systemctl disable solusnxt-agent.service
+		mv /etc/systemd/system/solusnxt-agent.service /root/solusnxt-agent.service.backup
+		systemctl mask solusnxt-agent.service
+		echo "Completed"
+	fi
 	
 	echo "Enabling/starting solus-agent.service"
 	systemctl enable solus-agent.service
