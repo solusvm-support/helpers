@@ -29,6 +29,26 @@ function move_directories() {
 	echo "Completed"
 }
 
+function new_agent_service() {
+	echo -e "[Unit] \
+	\nDescription=Solus Agent \
+	\nAfter=network.target \
+	\nRequires=network.target \
+	\n[Service] \
+	\nType=notify \
+	\nRestart=always \
+	\nRestartSec=5 \
+	\nTimeoutStartSec=5 \
+	\nTimeoutStopSec=2 \
+	\nUser=root \
+	\nGroup=root \
+	\nExecStart=/usr/local/solus/bin/agent \
+	\nExecStartPre=/bin/mkdir -p /var/log/solus \
+	\nExecStartPre=/bin/chmod 644 /var/log/solus \
+	\n[Install] \
+	\nWantedBy=multi-user.target" >> /usr/lib/systemd/system/solus-agent.service
+}
+
 function update_services() {
 	echo "Stopping/disabling old solusnxt-agent.service"
 	systemctl stop solusnxt-agent.service
@@ -38,12 +58,15 @@ function update_services() {
 	echo "Completed"
 	
 	echo "Enabling/starting solus-agent.service"
+	systemctl enable solus-agent.service
+	systemctl start solus-agent.service
 	systemctl daemon-reload
 }
 
 function main() {
     init
     move_directories
+    new_agent_service
     update_services
 }
 
