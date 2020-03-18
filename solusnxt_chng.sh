@@ -59,8 +59,10 @@ function update_services() {
 	
 	echo "Enabling/starting solus-agent.service"
 	systemctl enable solus-agent.service
-	systemctl start solus-agent.service
+	systemctl restart solus-agent.service
 	systemctl daemon-reload
+	sleep 10
+	systemctl restart solus-agent.service
 }
 
 function main() {
