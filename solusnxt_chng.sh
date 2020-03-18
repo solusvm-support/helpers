@@ -33,7 +33,7 @@ function update_services() {
 	echo "Stopping/disabling old solusnxt-agent.service"
 	systemctl stop solusnxt-agent.service
 	systemctl disable solusnxt-agent.service
-	rm -f /etc/systemd/system/solusnxt-agent.service
+	mv /etc/systemd/system/solusnxt-agent.service /root/solusnxt-agent.service.backup
 	systemctl mask solusnxt-agent.service
 	echo "Completed"
 	
