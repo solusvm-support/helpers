@@ -52,7 +52,7 @@ function new_agent_service() {
 function update_services() {
 	echo "Stopping/disabling old solusnxt-agent.service"
 	if [[ ! -f /etc/systemd/system/solusnxt-agent.service ]]; then
-		echo "File /etc/systemd/system/solusnxt-agent.service. Looks like solusnxt-agent. service disabled already"
+		echo "File /etc/systemd/system/solusnxt-agent.service does not exist.Looks like solusnxt-agent.service disabled already"
 	else
 		systemctl stop solusnxt-agent.service
 		systemctl disable solusnxt-agent.service
