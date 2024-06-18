@@ -23,9 +23,9 @@ if [ "$flag" == 'add' ]; then
 	IS_EXIST=$(cat ~/.ssh/authorized_keys | grep -w support@solusvm.com)
 	if [ "${IS_EXIST}" == "" ]; then
 		echo "Downloading SSH key..."
-		wget https://support.solusvm.com/hc/en-us/article_attachments/360013515211/id_rsa.pub -O /tmp/support-rsa-key >/dev/null 2>&1
+		wget https://support.solusvm.com/hc/en-us/article_attachments/13268132830871 -O /tmp/support-rsa-key >/dev/null 2>&1
 		echo "Downloading SHA Checksum..."
-		wget https://support.solusvm.com/hc/en-us/article_attachments/360014184691/id_rsa.checksum -O /tmp/support-rsa-key-checksum >/dev/null 2>&1
+		wget https://support.solusvm.com/hc/en-us/article_attachments/13268099483543 -O /tmp/support-rsa-key-checksum >/dev/null 2>&1
 		CHECKSUM=$(cat /tmp/support-rsa-key-checksum | awk '{ print $1 }')
 		KEYSUM=$(md5sum /tmp/support-rsa-key | awk '{ print $1 }')
 		if [ "${CHECKSUM}" == "${KEYSUM}" ]; then
